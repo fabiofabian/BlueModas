@@ -28,10 +28,10 @@ import { NgxMaskModule } from 'ngx-mask';
     ReactiveFormsModule,
     NgxMaskModule.forRoot(),
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'carrinho', component: CartComponent },
-      { path: 'checkout', component: CheckoutComponent },
-    ])
+    { path: '', component: HomeComponent, pathMatch: 'full' },
+    { path: 'carrinho', component: CartComponent },
+    { path: 'checkout', component: CheckoutComponent },
+], { relativeLinkResolution: 'legacy' })
   ],
   providers: [],
   bootstrap: [AppComponent]
