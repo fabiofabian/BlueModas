@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueModas", "BlueModas\BlueModas.csproj", "{A51C585B-B7AA-4AE3-A5C0-FD702710378C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueModas", "BlueModas\BlueModas.csproj", "{A51C585B-B7AA-4AE3-A5C0-FD702710378C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Presentation", "1. Presentation", "{0AFD0C82-2B66-497F-B89E-DDD5FDC650A9}"
 EndProject
@@ -13,17 +13,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Domain", "3. Domain", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Infrastructure", "4. Infrastructure", "{3887EF68-C40C-48F7-BE3A-18EC4FBC560B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueModas.Application", "BlueModas.Application\BlueModas.Application.csproj", "{6A897BDD-892C-4F80-BC95-3DB2E0097797}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueModas.Application", "BlueModas.Application\BlueModas.Application.csproj", "{6A897BDD-892C-4F80-BC95-3DB2E0097797}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueModas.Core", "BlueModas.Core\BlueModas.Core.csproj", "{ED07A1F3-008E-491E-9A72-01DED19B0E85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueModas.Domain.Core", "BlueModas.Core\BlueModas.Domain.Core.csproj", "{ED07A1F3-008E-491E-9A72-01DED19B0E85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueModas.Domain", "BlueModas.Domain\BlueModas.Domain.csproj", "{6484A1AB-C54C-466A-A371-C78DDEE9C395}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueModas.Domain", "BlueModas.Domain\BlueModas.Domain.csproj", "{6484A1AB-C54C-466A-A371-C78DDEE9C395}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueModas.Infra.CrossCutting.Bus", "BlueModas.Infra.CrossCutting.Bus\BlueModas.Infra.CrossCutting.Bus.csproj", "{850EB86F-2B50-459F-9F67-CFBB0C7A52B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueModas.Infra.CrossCutting.Bus", "BlueModas.Infra.CrossCutting.Bus\BlueModas.Infra.CrossCutting.Bus.csproj", "{850EB86F-2B50-459F-9F67-CFBB0C7A52B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueModas.Infra.CrossCutting", "BlueModas.Infra.CrossCutting\BlueModas.Infra.CrossCutting.csproj", "{31AD1D26-FD59-4CA0-B2B0-012AE95A106B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueModas.Infra.CrossCutting.IoC", "BlueModas.Infra.CrossCutting\BlueModas.Infra.CrossCutting.IoC.csproj", "{31AD1D26-FD59-4CA0-B2B0-012AE95A106B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueModas.Infra.Data", "BlueModas.Infra.Data\BlueModas.Infra.Data.csproj", "{996A030B-4C92-465A-991E-245456B3ED20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlueModas.Infra.Data", "BlueModas.Infra.Data\BlueModas.Infra.Data.csproj", "{996A030B-4C92-465A-991E-245456B3ED20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

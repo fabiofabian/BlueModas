@@ -1,6 +1,9 @@
+using AutoMapper;
+using MediatR;
+using BlueModas.Application.AutoMapper;
+using BlueModas.Infra.CrossCutting.IoC;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,6 +24,14 @@ namespace BlueModas
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddControllersWithViews();
+
+      IMapper mapperConfig = AutoMapperConfig.RegisterMappings().CreateMapper();
+      services.AddSingleton(mapperConfig);
+
+      services.AddMediatR(typeof(Startup));
+
+      NativeInjector.RegisterAppServices(services);
+
       // In production, the Angular files will be served from this directory
       services.AddSpaStaticFiles(configuration =>
       {
