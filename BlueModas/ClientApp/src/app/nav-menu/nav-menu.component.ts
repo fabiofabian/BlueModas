@@ -15,11 +15,11 @@ export class NavMenuComponent implements OnInit {
   ngOnInit(): void {
     this.configureCartCount();
   }
-  
+
   configureCartCount() {
     this.cartItens = this.cartService.get().length;
 
-    this.cartService.watchStorage().subscribe((data: string) => {
+    this.cartService.watchStorage().subscribe(_ => {
       this.cartItens = this.cartService.get().length;
     });
     

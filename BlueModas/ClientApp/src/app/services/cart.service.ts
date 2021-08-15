@@ -44,29 +44,23 @@ export class CartService {
     let cart = this.get();    
     let index = cart.findIndex(x => x.productId == productId);
     if(index != -1){
-      cart = cart.splice(index, 1);
+      cart.splice(index, 1);
     }
     this.set(cart);
-  }
-
-  addToProduct(productId: string){
-    this.changeQuantity(productId, 1);
-  }
-
-  removeFromProduct(productId: string){
-    this.changeQuantity(productId, -1);
-  }
+  } 
 
   clear(){
     localStorage.setItem('cart', '[]');
     this.storageSub.next('cleared');
   }
 
-  private changeQuantity(productId: string, quantity: number){
+  changeQuantity(productId: string, quantity: number){
     let cart = this.get();    
     let index = cart.findIndex(x => x.productId == productId);
     if(index != -1){
-      cart[index].quantity += quantity;
+      if(quantity > 0 || quantity < 0 && cart[index].quantity > 1 ){
+        cart[index].quantity += quantity;
+      }
     }
     this.set(cart);
   }

@@ -1,0 +1,13 @@
+<p>product-list works!</p>
+
+
+<div *ngFor="let cartItem of cartProducts">
+    <h3>{{cartItem.name}}</h3>
+    <h4>{{cartItem.quantity}}</h4>    
+    <button (click)="changeQuantity(cartItem.productId, 1)">+</button>
+    <button (click)="changeQuantity(cartItem.productId, -1)">-</button>
+    <hr>
+</div>
+<div *ngIf="cartProducts">
+    <a [routerLink]="['/checkout']">Finalizar Compra</a>
+</div>
