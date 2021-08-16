@@ -10,6 +10,8 @@ import { ProductViewModel } from 'src/app/viewModels/productViewModel';
 })
 export class ProductListComponent implements OnInit {
   products: ProductViewModel[];
+  productsRows: ProductViewModel[][] = [];
+  productsPerRow: number = 4;
 
   constructor(private productService: ProductService, private cartService: CartService) { }
 
@@ -18,11 +20,21 @@ export class ProductListComponent implements OnInit {
     this.productService.get().subscribe(
       res => {
         this.products = res.data;
+        this.createProductRows();
         console.log(res.data);
       },
       err => console.log(err)
     );
 
+  }
+
+  createProductRows() {
+    let iterations = Math.ceil(this.products.length / this.productsPerRow);    
+
+    for(let i = 0; i < iterations; i++){
+      let row = this.products.splice(0, this.productsPerRow)      
+      this.productsRows[i] = row;      
+    }
   }
 
   addToCart(productId: string){

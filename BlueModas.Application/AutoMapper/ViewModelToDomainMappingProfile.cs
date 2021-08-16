@@ -1,21 +1,28 @@
 ﻿using AutoMapper;
 using BlueModas.Application.ViewModels;
+using BlueModas.Domain.Commands;
 using BlueModas.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BlueModas.Application.AutoMapper
 {
-    public class ViewModelToDomainMappingProfile : Profile
+  public class ViewModelToDomainMappingProfile : Profile
+  {
+    public ViewModelToDomainMappingProfile()
     {
-        public ViewModelToDomainMappingProfile()
-        {
-            CreateMap<ProductViewModel, Product>();
-            CreateMap<ProductVariant, ProductVariantViewModel>();
-            CreateMap<ProductVariantImage, ProductVariantImageViewModel>();
-        }
+      // Entities
+      CreateMap<ProductViewModel, Product>();
+      CreateMap<ProductImageViewModel, ProductImage>();
+      CreateMap<OrderViewModel, Order>();
+      CreateMap<OrderProductViewModel, OrderProduct>();
+      //CreateMap<ProductVariant, ProductVariantViewModel>();
+      //CreateMap<ProductVariantImage, ProductVariantImageViewModel>();
+
+
+      // Commands
+      CreateMap<OrderViewModel, CreateOrderCommand>();
+      CreateMap<ProductViewModel, UpdateProductCommand>();
+      CreateMap<ProductViewModel, RemoveProductCommand>();
+
     }
+  }
 }

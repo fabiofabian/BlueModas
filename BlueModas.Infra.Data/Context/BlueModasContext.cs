@@ -17,7 +17,9 @@ namespace BlueModas.Infra.Data.Context
 
             // Entities mapping
             modelBuilder.ApplyConfiguration(new ProductMap());
-            modelBuilder.ApplyConfiguration(new ProductImageMap());
+            modelBuilder.ApplyConfiguration(new OrderMap());
+            modelBuilder.ApplyConfiguration(new OrderProductMap());
+            //modelBuilder.ApplyConfiguration(new ProductImageMap());
             //modelBuilder.ApplyConfiguration(new ProductVariantMap());
             //modelBuilder.ApplyConfiguration(new ProductVariantImageMap());
 

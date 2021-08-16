@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace BlueModas.Presentation.Controllers
 {
   [ApiController]
-  [Route("[controller]")]
+  [Route("api/[controller]")]
   public class ProductController : ApiBaseController
   {
     private readonly IProductService _productService;

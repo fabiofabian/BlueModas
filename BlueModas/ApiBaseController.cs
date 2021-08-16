@@ -23,6 +23,11 @@ namespace BlueModas.Presentation
 
     protected IEnumerable<DomainNotification> Notifications => _notifications.GetNotifications();
 
+    protected bool HasIdNotification()
+    {
+      return (_notifications.HasEntityNotifications());
+    }
+
     protected bool IsValidOperation()
     {
       return (!_notifications.HasNotifications());
@@ -32,11 +37,21 @@ namespace BlueModas.Presentation
     {
       if (IsValidOperation())
       {
-        return Ok(new
+        if (HasIdNotification())
         {
-          success = true,
-          data = result
-        });
+          return Ok(new
+          {
+            success = true,
+            data = new { Id = _notifications.GetNotifications().FirstOrDefault(x => x.Key == "EntityId").Value }
+          });
+        } else
+        {
+          return Ok(new
+          {
+            success = true,
+            data = result
+          });
+        }
       }
 
       return Ok(new

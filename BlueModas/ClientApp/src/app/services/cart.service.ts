@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { CartItemViewModel } from '../viewModels/cartItemViewModel';
+import { OrderProductViewModel } from '../viewModels/orderProductViewModel';
 
 @Injectable({
   providedIn: 'root'
@@ -15,12 +15,12 @@ export class CartService {
     return this.storageSub.asObservable();
   }
 
-  get(): CartItemViewModel[]{
+  get(): OrderProductViewModel[]{
     this.verifyAndConfigure();
-    return JSON.parse(localStorage.getItem('cart')) as CartItemViewModel[];
+    return JSON.parse(localStorage.getItem('cart')) as OrderProductViewModel[];
   }
 
-  set(cart: CartItemViewModel[]) {
+  set(cart: OrderProductViewModel[]) {
     localStorage.setItem('cart', JSON.stringify(cart));
     this.storageSub.next('changed');
   }

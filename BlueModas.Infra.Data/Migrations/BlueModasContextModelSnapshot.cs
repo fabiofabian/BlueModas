@@ -19,7 +19,7 @@ namespace BlueModas.Infra.Data.Migrations
                 .HasAnnotation("ProductVersion", "5.0.9")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("BlueModas.Domain.Models.Product", b =>
+            modelBuilder.Entity("BlueModas.Domain.Models.Order", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -28,13 +28,70 @@ namespace BlueModas.Infra.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Description")
+                    b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Number")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Order");
+                });
+
+            modelBuilder.Entity("BlueModas.Domain.Models.OrderProduct", b =>
+                {
+                    b.Property<Guid>("OrderId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("OrderId", "ProductId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("OrderProduct");
+                });
+
+            modelBuilder.Entity("BlueModas.Domain.Models.Product", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Active")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -47,77 +104,45 @@ namespace BlueModas.Infra.Data.Migrations
                         new
                         {
                             Id = new Guid("2debc054-b480-470d-a1d6-07106a705c61"),
-                            CreatedAt = new DateTime(2021, 8, 15, 1, 42, 53, 654, DateTimeKind.Local).AddTicks(5682),
-                            Description = "Camiseta de algodão macio",
+                            Active = false,
+                            CreatedAt = new DateTime(2021, 8, 15, 20, 13, 56, 358, DateTimeKind.Local).AddTicks(2106),
+                            ImagePath = "assets/images/image1.jpg",
                             Name = "Camiseta Branca",
-                            UpdatedAt = new DateTime(2021, 8, 15, 1, 42, 53, 655, DateTimeKind.Local).AddTicks(2816)
+                            Price = 29.99m,
+                            UpdatedAt = new DateTime(2021, 8, 15, 20, 13, 56, 358, DateTimeKind.Local).AddTicks(8598)
                         },
                         new
                         {
                             Id = new Guid("829df3f6-2641-421e-a0de-e9f757337bc6"),
-                            CreatedAt = new DateTime(2021, 8, 15, 1, 42, 53, 655, DateTimeKind.Local).AddTicks(3143),
-                            Description = "Blusa de algodão macio",
+                            Active = false,
+                            CreatedAt = new DateTime(2021, 8, 15, 20, 13, 56, 358, DateTimeKind.Local).AddTicks(8935),
+                            ImagePath = "assets/images/image2.jpg",
                             Name = "Blusa Azul",
-                            UpdatedAt = new DateTime(2021, 8, 15, 1, 42, 53, 655, DateTimeKind.Local).AddTicks(3147)
+                            Price = 49.99m,
+                            UpdatedAt = new DateTime(2021, 8, 15, 20, 13, 56, 358, DateTimeKind.Local).AddTicks(8939)
                         });
                 });
 
-            modelBuilder.Entity("BlueModas.Domain.Models.ProductImage", b =>
+            modelBuilder.Entity("BlueModas.Domain.Models.OrderProduct", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.HasOne("BlueModas.Domain.Models.Order", null)
+                        .WithMany("OrderProducts")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Location")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("ProductId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("ProductImage");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("940b1a36-0fa2-40a6-b425-bd25144c82c2"),
-                            CreatedAt = new DateTime(2021, 8, 15, 1, 42, 53, 657, DateTimeKind.Local).AddTicks(1502),
-                            Location = "/images/products/image1.jpg",
-                            ProductId = new Guid("2debc054-b480-470d-a1d6-07106a705c61"),
-                            UpdatedAt = new DateTime(2021, 8, 15, 1, 42, 53, 657, DateTimeKind.Local).AddTicks(1511)
-                        },
-                        new
-                        {
-                            Id = new Guid("5398c5c5-4de2-4c15-8c27-4bfdf65fcd57"),
-                            CreatedAt = new DateTime(2021, 8, 15, 1, 42, 53, 657, DateTimeKind.Local).AddTicks(1522),
-                            Location = "/images/products/image1.jpg",
-                            ProductId = new Guid("829df3f6-2641-421e-a0de-e9f757337bc6"),
-                            UpdatedAt = new DateTime(2021, 8, 15, 1, 42, 53, 657, DateTimeKind.Local).AddTicks(1523)
-                        });
-                });
-
-            modelBuilder.Entity("BlueModas.Domain.Models.ProductImage", b =>
-                {
-                    b.HasOne("BlueModas.Domain.Models.Product", null)
-                        .WithMany("Images")
+                    b.HasOne("BlueModas.Domain.Models.Product", "Product")
+                        .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("BlueModas.Domain.Models.Product", b =>
+            modelBuilder.Entity("BlueModas.Domain.Models.Order", b =>
                 {
-                    b.Navigation("Images");
+                    b.Navigation("OrderProducts");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,9 +1,13 @@
-<p>product-list works!</p>
+<div class="row" *ngFor="let row of productsRows">
+    <div class="product-list col-md-3 col-sm-4 col-xs-6" *ngFor="let product of row">
+        <div class="card-container">
+            <div class="image" style="background-image: url({{product.imagePath}});"></div>
 
-
-<div *ngFor="let product of products">
-    <h3>{{product.name}}</h3>
-    <h4>{{product.description}}</h4>    
-    <button (click)="addToCart(product.id)">Adicionar ao carrinho</button>
-    <hr>
+            <div class="detail">
+                <h3>{{product.name}}</h3>
+                <h2>R$ {{product.price}}</h2>
+                <button mat-button color="primary" (click)="addToCart(product.id)">Adicionar ao carrinho</button>    
+            </div>
+        </div>
+    </div>
 </div>

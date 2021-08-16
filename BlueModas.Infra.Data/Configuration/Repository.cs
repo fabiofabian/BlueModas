@@ -20,6 +20,7 @@ namespace BlueModas.Infra.Data.Configuration
         public void Add(T obj)
         {
             obj.CreatedAt = DateTime.Now;
+            obj.UpdatedAt = DateTime.Now;
             DbSet.Add(obj);
         }
 

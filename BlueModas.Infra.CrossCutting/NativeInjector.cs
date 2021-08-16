@@ -1,5 +1,6 @@
 ﻿using BlueModas.Application.Interfaces;
 using BlueModas.Application.Services;
+using BlueModas.Domain.Commands;
 using BlueModas.Domain.Core.Interfaces;
 using BlueModas.Domain.Core.Notifications;
 using BlueModas.Domain.Interfaces.Data;
@@ -34,11 +35,19 @@ namespace BlueModas.Infra.CrossCutting.IoC
       // Domain - Events
       services.AddScoped<INotificationHandler<DomainNotification>, DomainNotificationHandler>();
 
+      // Domain - Commands
+
+      services.AddScoped<IRequestHandler<UpdateProductCommand, Unit>, ProductCommandHandler>();
+      services.AddScoped<IRequestHandler<RemoveProductCommand, Unit>, ProductCommandHandler>();
+      services.AddScoped<IRequestHandler<CreateOrderCommand, Unit>, OrderCommandHandler>();
+
       //Services
       services.AddScoped<IProductService, ProductService>();
+      services.AddScoped<IOrderService, OrderService>();
 
       //Repos
       services.AddScoped<IProductRepository, ProductRepository>();
+      services.AddScoped<IOrderRepository, OrderRepository>();
     }
   }
 }

@@ -10,7 +10,7 @@ namespace BlueModas.Domain.Validations
     {
       RuleFor(x => x.IdProduct).NotEmpty().WithMessage("É necessário selecionar um produto válido");
       RuleFor(x => x.Name).NotEmpty().WithMessage("É necessário inserir um nome de produto válido");
-      RuleFor(x => x.Description).NotEmpty().WithMessage("É necessário inserir uma descrição de produto válido");
+      RuleFor(x => x.Price).NotEmpty().WithMessage("É necessário inserir um preço válido");
     }
   }
 }

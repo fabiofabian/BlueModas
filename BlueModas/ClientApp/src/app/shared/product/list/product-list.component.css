@@ -1,0 +1,28 @@
+.product-list .image{
+    height: 280px;
+    width: auto;
+    background-size: cover;
+    border-radius: 5px 5px 0 0;
+}
+
+.product-list .detail h3, .product-list .detail h2 {
+    padding: 0 8px;
+}
+
+.product-list .detail{
+    padding-top: 10px
+}
+
+.product-list .detail button{
+    width: 100%;
+}
+
+.product-list .card-container{
+    background-color: rgba(42, 157, 244, 0.05);
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px lightgrey;
+}
+
+.row{
+    margin-bottom: 30px;
+}

@@ -1,4 +1,4 @@
-export class CartItemViewModel {
+export class OrderProductViewModel {
     productId: string;
     quantity: number;
 }

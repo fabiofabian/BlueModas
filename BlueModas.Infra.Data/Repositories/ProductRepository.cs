@@ -29,8 +29,7 @@ namespace BlueModas.Infra.Data.Repositories
 
     public IEnumerable<Product> GetProducts()
     {
-      return _context.Set<Product>()
-          .Include(x => x.Images);
+      return _context.Set<Product>();
     }
   }
 }

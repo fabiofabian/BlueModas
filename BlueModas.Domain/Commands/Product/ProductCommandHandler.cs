@@ -29,7 +29,7 @@ namespace BlueModas.Domain.Commands
       if (!request.IsValid()) NotifyValidationErrors(request);
       else
       {
-        await UpdateProduct(request.IdProduct, request.Name, request.Description);
+        await UpdateProduct(request.IdProduct, request.Name, request.Price);
       }
 
       await Commit(_notifications.HasNotifications());     
@@ -50,12 +50,12 @@ namespace BlueModas.Domain.Commands
       return Unit.Value;
     }
 
-    private async Task UpdateProduct(Guid idProduct, string name, string description)
+    private async Task UpdateProduct(Guid idProduct, string name, decimal price)
     {
       var product = await _productRepository.GetById(idProduct);
 
       product.Name = name;
-      product.Description = description;
+      product.Price = price;
 
       _productRepository.Update(product);
     }

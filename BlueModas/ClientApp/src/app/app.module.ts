@@ -11,11 +11,15 @@ import { SharedModule } from './shared/shared.module';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { NgxMaskModule } from 'ngx-mask';
+import { PurchaseDetailsComponent } from './purchase-details/purchaseDetails.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
+    FooterComponent,
     HomeComponent,
     CartComponent,
     CheckoutComponent
@@ -31,7 +35,9 @@ import { NgxMaskModule } from 'ngx-mask';
     { path: '', component: HomeComponent, pathMatch: 'full' },
     { path: 'carrinho', component: CartComponent },
     { path: 'checkout', component: CheckoutComponent },
-], { relativeLinkResolution: 'legacy' })
+    { path: 'detalhes-compra', component: PurchaseDetailsComponent },
+], { relativeLinkResolution: 'legacy' }),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -21,7 +21,7 @@ export class ProductService {
   constructor(private http: HttpClient) { }
   
   public get() {
-    return this.http.get(`Product`).pipe(map((response: ApiResponse<ProductViewModel>) =>
+    return this.http.get(`api/Product`).pipe(map((response: ApiResponse<ProductViewModel>) =>
       ({
         data: response.data, success: response.success
       })

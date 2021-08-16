@@ -1,13 +1,31 @@
-<p>product-list works!</p>
 
-
-<div *ngFor="let cartItem of cartProducts">
-    <h3>{{cartItem.name}}</h3>
-    <h4>{{cartItem.quantity}}</h4>    
-    <button (click)="changeQuantity(cartItem.productId, 1)">+</button>
-    <button (click)="changeQuantity(cartItem.productId, -1)">-</button>
-    <hr>
+<div class="cart-list" *ngFor="let cartItem of cartProducts">
+    <div class="row">
+        <div class="col-sm-3 text-sm-left text-center">
+            <img class="image" src="{{cartItem.imagePath}}" alt="Minha Figura">
+        </div>
+        <div class="col-sm-6 details">
+            <h1>Produto: {{cartItem.name}}</h1>            
+            <h3>Quantidade: {{cartItem.quantity}}</h3>    
+            <h3>Subtotal: {{getSubtotal(cartItem)}}</h3>            
+        </div>
+        <div class="col-sm-3 align-self-center">
+            <div class="text-center">
+                <button mat-mini-fab (click)="changeQuantity(cartItem.productId, -1)" color="accent" aria-label="Example icon button with a plus one icon">
+                    <mat-icon>remove</mat-icon>
+                </button>
+                {{cartItem.quantity}}
+                <button mat-mini-fab (click)="changeQuantity(cartItem.productId, 1)" color="accent" aria-label="Example icon button with a plus one icon">
+                    <mat-icon>add</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
-<div *ngIf="cartProducts">
-    <a [routerLink]="['/checkout']">Finalizar Compra</a>
+<div *ngIf="cartProducts.length > 0">
+    <span>Total: {{getTotal()}}</span>
+    <a class="float-right" [routerLink]="['/checkout']" mat-button color="primary" >Finalizar Compra</a> 
+</div>
+<div *ngIf="cartProducts.length == 0">
+    <h1>Não há itens no carrinho</h1>
 </div>
