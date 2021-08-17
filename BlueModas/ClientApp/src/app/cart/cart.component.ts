@@ -53,7 +53,6 @@ export class CartComponent implements OnInit {
         this.products = res.data;
         this.setCartProducts();
         this.setCartWatcher();
-        console.log(res.data);
       },
       err => console.log(err)
     );

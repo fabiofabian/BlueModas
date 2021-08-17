@@ -19,9 +19,6 @@ namespace BlueModas.Infra.Data.Context
             modelBuilder.ApplyConfiguration(new ProductMap());
             modelBuilder.ApplyConfiguration(new OrderMap());
             modelBuilder.ApplyConfiguration(new OrderProductMap());
-            //modelBuilder.ApplyConfiguration(new ProductImageMap());
-            //modelBuilder.ApplyConfiguration(new ProductVariantMap());
-            //modelBuilder.ApplyConfiguration(new ProductVariantImageMap());
 
             base.OnModelCreating(modelBuilder);
         }

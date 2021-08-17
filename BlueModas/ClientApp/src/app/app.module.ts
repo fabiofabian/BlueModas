@@ -13,16 +13,22 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { NgxMaskModule } from 'ngx-mask';
 import { PurchaseDetailsComponent } from './purchase-details/purchaseDetails.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FooterComponent } from './footer/footer.component';
+import { LOCALE_ID } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+
+registerLocaleData(localePt);
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
-    FooterComponent,
     HomeComponent,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    PurchaseDetailsComponent
   ],
   imports: [
     SharedModule,
@@ -39,7 +45,12 @@ import { FooterComponent } from './footer/footer.component';
 ], { relativeLinkResolution: 'legacy' }),
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: "pt"
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

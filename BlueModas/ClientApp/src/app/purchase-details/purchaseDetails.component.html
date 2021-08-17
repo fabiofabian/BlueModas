@@ -1,2 +1,27 @@
-<p>purchase works!</p>
-
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="purchase-details-card">            
+                <div>
+                    <h1>Detalhes do pedido {{order.number}}</h1>
+                </div>
+                <hr>
+                <div>
+                    <h2>Cliente</h2>
+                    <p>Nome: {{order.name}}</p>
+                    <p>Email: {{order.email}}</p>
+                    <p>Telefone: {{order.phone | mask: phoneMask}}</p>
+                </div>
+                <hr>
+                <div>
+                    <h2>Produtos</h2>
+                    <div *ngFor="let orderProduct of order.orderProducts;">                        
+                        <p class="bold">{{orderProduct.product.name}}</p>
+                        <p>Quantidade: {{orderProduct.quantity}}</p>
+                        <p>Subtotal: {{getSubtotal(orderProduct) | currency:'BRL':true}}</p>
+                        <hr>
+                    </div>
+                    <p class="bold">Total: {{getTotal() | currency:'BRL':true}}</p>
+                </div>
+        </div>
+    </div>
+</div>

@@ -9,11 +9,8 @@ namespace BlueModas.Application.AutoMapper
     public DomainToViewModelMappingProfile()
     {
       CreateMap<Product, ProductViewModel>();
-      CreateMap<ProductImage, ProductImageViewModel>();
       CreateMap<Order, OrderViewModel>();
       CreateMap<OrderProduct, OrderProductViewModel>();
-      //CreateMap<ProductVariant, ProductVariantViewModel>();
-      //CreateMap<ProductVariantImage, ProductVariantImageViewModel>();
     }
   }
 }

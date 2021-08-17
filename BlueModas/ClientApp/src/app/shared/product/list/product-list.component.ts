@@ -21,7 +21,6 @@ export class ProductListComponent implements OnInit {
       res => {
         this.products = res.data;
         this.createProductRows();
-        console.log(res.data);
       },
       err => console.log(err)
     );
@@ -39,7 +38,6 @@ export class ProductListComponent implements OnInit {
 
   addToCart(productId: string){
     this.cartService.add(productId);
-    console.log(this.cartService.get());
   }
 
 }

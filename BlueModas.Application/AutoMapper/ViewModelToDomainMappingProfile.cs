@@ -11,11 +11,8 @@ namespace BlueModas.Application.AutoMapper
     {
       // Entities
       CreateMap<ProductViewModel, Product>();
-      CreateMap<ProductImageViewModel, ProductImage>();
       CreateMap<OrderViewModel, Order>();
       CreateMap<OrderProductViewModel, OrderProduct>();
-      //CreateMap<ProductVariant, ProductVariantViewModel>();
-      //CreateMap<ProductVariantImage, ProductVariantImageViewModel>();
 
 
       // Commands
