@@ -16,7 +16,7 @@ Este projeto foi criado para mostrar o conhecimento que possuo na criação de a
 - Infraestrutura 
 >Configuração de **Domain Events**, **Injeção de dependência**, **Entity Framework Core** e repositórios.
 
-# Rodando o código
+## Rodando o código
 
 Para rodar o código é preciso instalar as dependências do projeto e criar a base de dados. 
 
