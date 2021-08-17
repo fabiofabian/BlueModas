@@ -9,7 +9,7 @@ namespace BlueModas.Infra.Data.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var config = new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory).AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("BlueModas_ENV") ?? "Production"}.json").Build();
+            var config = new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory).AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("BlueModas_ENV") ?? "Development"}.json").Build();
             optionsBuilder.UseSqlServer(config.GetConnectionString("DefaultConnection"));
         }
 
