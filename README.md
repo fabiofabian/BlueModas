@@ -1,14 +1,14 @@
 # BlueModas
 
-Este projeto foi criado para mostrar o conhecimento que possuo na criação de aplicações utilizando **.NET Core 5** (utilzando CQRS), **Angular 12** e **SQL Server**.
+Este projeto foi criado para mostrar o conhecimento que possuo na criação de aplicações utilizando **.NET Core 5** (utilizando CQRS), **Angular 12** e **SQL Server**.
 
 >Embora tenha sido utilizado o padrão CQRS para separação de comandos e queries, o banco de dados utilizado na aplicação é o mesmo para as duas divisões.
 
->Não foi dada muita atenção a estilização do front-end pois a ideia é mostrar a estrutura com a qual sou apto a lidar
+>Não foi dada muita atenção a estilização do front-end pois a ideia é mostrar a estrutura com a qual sou apto a lidar.
 
 ### O back-end é separado nas camadas de:
 - Apresentação 
->cliente Angular + aplicação ASP.NET Core.
+>Cliente Angular + aplicação ASP.NET Core.
 - Aplicação 
 >**AutoMapper**, Interfaces, View Models e Serviços da aplicação.
 - Domínio 
@@ -20,11 +20,11 @@ Este projeto foi criado para mostrar o conhecimento que possuo na criação de a
 
 Para rodar o código é preciso instalar as dependências do projeto e criar a base de dados. 
 
-## Criar a base de dados
+## Criando a base de dados (com o Visual Studio)
 
--É necessário ajustar a string de conexão do banco de dados em **appsettings.Development.json** em **BlueModas**;
+-É necessário ajustar a string de conexão do banco de dados em **appsettings.Development.json** no projeto **BlueModas**;
 
--O projeto **BlueModas** esteja definido como **projeto de inicialização**; 
+-O projeto **BlueModas** deve ser definido como **projeto de inicialização**; 
 
 -O projeto padrão no **console do gerenciador de pacotes** seja **BlueModas.Infra.Data**;
 
